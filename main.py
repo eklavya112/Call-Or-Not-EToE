@@ -210,14 +210,14 @@ with col3:
 with col4:
     job = st.selectbox('JOB',sorted(J),key=next(keys))
 
-col5,col6 = st.columns(2,gap="large")
+col5,col6,col7 = st.columns(3,gap="large")
 
 with col5:
     default = st.selectbox("DEFAULTER",sorted(D),key=next(keys))
 with col6:
     any_loans = st.selectbox("ANY LOANS",sorted(ANY_L),key=next(keys))
 
-col7 = st.columns(1)
+#col7 = st.columns(1)
 with col7:
     month = st.selectbox("TIME PERIOD",sorted(M),key=next(keys))
 
