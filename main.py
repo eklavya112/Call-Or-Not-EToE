@@ -128,7 +128,21 @@ def my_model(x_train,x_test,y_train,y_test,element_indexes):
     pipe.fit(x_train,y_train)
     #pickle.dump(pipe,open('model.pkl','wb'))
     return pipe
-
+def model_for_app(df:pandas.core.frame.DataFrame,element_indexes):
+    x = df.drop('y',axis=1)
+    y = df['y']
+    step1 = ColumnTransformer([
+            ('ohe',OneHotEncoder(sparse=False,handle_unknown='ignore'),element_indexes)
+          ],remainder='passthrough')
+        
+        step2 = GaussianNB()
+        
+        pipe = Pipeline([
+        ('step1',step1),
+        ('step2',step2)
+    ])
+    pipe.fit(x,y)
+    return pipe
 
 def get_plot(df :pandas.core.frame.DataFrame, variable_list:list):
     '''
@@ -160,7 +174,7 @@ df = get_data("Bank.csv",";")
 final_df = ftr_eng_sel(df)
 x_train,x_test,y_train,y_test = train_test(final_df)
 
-model = my_model(x_train,x_test,y_train,y_test,[0,1,2,3,4,6,7])
+model = model_for_app(final_df,[0,1,2,3,4,6,7])
 
 A = [i for i in range(15,100)]
 J = ['housemaid', 'services', 'admin.', 'blue-collar', 'technician',
