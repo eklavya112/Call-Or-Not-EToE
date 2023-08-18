@@ -222,7 +222,7 @@ with col7:
     month = st.selectbox("TIME PERIOD",sorted(M),key=next(keys))
 
 
-
+from math import *
 if st.button('Prediction',key=next(keys)):
         df = pandas.DataFrame(
             {'job': [job], 'marital': [marital],'education':[education],'default':[default],
