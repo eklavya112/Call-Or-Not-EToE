@@ -231,11 +231,11 @@ if st.button('Prediction',key=next(keys)):
             result = model.predict_proba(df)
             yes = result[0][1]
             no = result[0][0]
-            y = float("{:.4f}".format(yes))
-            n = float("{:.4f}".format(no))
+            # y = float("{:.4f}".format(yes))
+            # n = float("{:.4f}".format(no))
             st.title("Success Chances : ")
-            st.title("YES: "+ str(int(y*100))+" %")
-            st.title("NO: " + str(int(n*100))+ " %")
+            st.title("YES: "+ str(int(yes*100))+" %")
+            st.title("NO: " + str(int(no*100))+ " %")
             # st.title("There are "+str(result[0][0]*100)+" % Chances that the user will subscribe for Policy.")
 
     
