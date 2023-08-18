@@ -229,12 +229,10 @@ if st.button('Prediction',key=next(keys)):
         {'job': [job], 'marital': [marital],'education':[education],'default':[default],
          'FrequencyOfPrvCalls':[frequency] ,'log_age': [numpy.log(age)],'Any_Loans': [any_loans], 'Month':
            [month]})
-    result = model.predict(df)
+    result = model.predict_proba(df)
 
-    if result[0]==1:
-            st.title("Prediction:"+str(result[0]))
-            st.title("Go ahead! High Chances that the user will subscribe for Policy")
-    else:
-        st.title("Prediction:"+str(result[0]))
-        st.title("Can Wait or Contact Others! High Chances that the user will not subscribe for Policy")
+    
+st.title("SUccess Probability:"+str(result[0]))
+st.title("There are "+str(result[0]*100)+"% Chances that the user will subscribe for Policy.")
+    
 
