@@ -194,7 +194,7 @@ EDU = ['elementary', 'high.school', 'professional.course', 'unknown',
        'university.degree', 'illiterate']
 
 #model = pickle.load(open("model.pkl","rb"))
-st.title("Make a Call or Not (Policy Subscription)")
+st.title("Make a Call or Not (New Bank Policy Promotion)")
 keys = (e for e in range(1,100))
 col1,col2 = st.columns(2,gap="large")
 with col1:
