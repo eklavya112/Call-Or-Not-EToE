@@ -135,9 +135,9 @@ def model_for_app(df:pandas.core.frame.DataFrame,element_indexes):
             ('ohe',OneHotEncoder(sparse=False,handle_unknown='ignore'),element_indexes)
           ],remainder='passthrough')
         
-        step2 = GaussianNB()
+    step2 = GaussianNB()
         
-        pipe = Pipeline([
+    pipe = Pipeline([
         ('step1',step1),
         ('step2',step2)
     ])
