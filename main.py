@@ -229,10 +229,11 @@ if st.button('Prediction',key=next(keys)):
              'log_age': [numpy.log(age)],'Any_Loans': [any_loans], 'Month':
                [month]})
         result = model.predict_proba(df)
-    
+        yes = result[0][1]
+        no = result[0][1]
         st.title("Success Chances : ")
-        st.title("YES: "+ str(round(result[0][1]*100),2)+" %")
-        st.title("NO: " + str(round(result[0][0]*100),2)+" %")
+        st.title("YES: "+ str(round(yes*100),2)+" %")
+        st.title("NO: " + str(round(no*100),2)+" %")
         #st.title("There are "+str(result[0][0]*100)+" % Chances that the user will subscribe for Policy.")
 
     
