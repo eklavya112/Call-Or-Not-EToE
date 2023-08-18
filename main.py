@@ -188,7 +188,7 @@ D = ['no', 'unknown', 'yes']
 MAR =['married', 'single', 'divorced', 'unknown']
 
 ANY_L = ['yes','no','unknown']
-CONT = ['Significance','Frequent','Too Frequent']
+#CONT = ['Significance','Frequent','Too Frequent']
 
 EDU = ['elementary', 'high.school', 'professional.course', 'unknown',
        'university.degree', 'illiterate']
@@ -217,17 +217,16 @@ with col5:
 with col6:
     any_loans = st.selectbox("ANY LOANS",sorted(ANY_L),key=next(keys))
 
-col7,col8 = st.columns(2,gap="large")
+col7 = st.columns(1)
 with col7:
     month = st.selectbox("TIME PERIOD",sorted(M),key=next(keys))
-with col8:
-    frequency = st.selectbox("FREQUENCY OF CALLS",sorted(CONT),key=next(keys))
+
 
 
 if st.button('Prediction',key=next(keys)):
         df = pandas.DataFrame(
             {'job': [job], 'marital': [marital],'education':[education],'default':[default],
-             'FrequencyOfPrvCalls':[frequency] ,'log_age': [numpy.log(age)],'Any_Loans': [any_loans], 'Month':
+             'log_age': [numpy.log(age)],'Any_Loans': [any_loans], 'Month':
                [month]})
         result = model.predict_proba(df)
     
