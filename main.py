@@ -95,7 +95,7 @@ def ftr_eng_sel(df:pandas.core.frame.DataFrame)->pandas.core.frame.DataFrame:
     # file.write("5. Following is a list of all final selected columns for training the model"+"\n")
     # file.write("[Job,marital,education,default,month,age(log),y(target),any_loans(housing+personal),Frequencyofprvcalls(campaign calls)]")
     # file.close()
-    return df[['job','marital','education','default','FrequencyOfPrvCalls','y','log_age','Any_Loans','Month']]
+    return df[['job','marital','education','default','y','log_age','Any_Loans','Month']]
 
 
 
@@ -174,7 +174,7 @@ df = get_data("Bank.csv",";")
 final_df = ftr_eng_sel(df)
 x_train,x_test,y_train,y_test = train_test(final_df)
 
-model = model_for_app(final_df,[0,1,2,3,4,6,7])
+model = model_for_app(final_df,[0,1,2,3,5,6])
 
 A = [i for i in range(15,100)]
 J = ['housemaid', 'services', 'admin.', 'blue-collar', 'technician',
@@ -232,9 +232,9 @@ if st.button('Prediction',key=next(keys)):
         result = model.predict_proba(df)
     
         st.title("Success Chances : ")
-        st.title("YES: "+ str(result[0][1]*100)+"%")
-        st.title("NO: " + str(result[0][0]*100)+"%")
-        #st.title("There are "+str(result[0][0]*100)+"% Chances that the user will subscribe for Policy.")
+        st.title("YES: "+ str(result[0][1]*100)+" %")
+        st.title("NO: " + str(result[0][0]*100)+" %")
+        #st.title("There are "+str(result[0][0]*100)+" % Chances that the user will subscribe for Policy.")
 
     
 
