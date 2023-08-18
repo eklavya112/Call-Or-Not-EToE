@@ -232,7 +232,7 @@ if st.button('Prediction',key=next(keys)):
             yes = result[0][1]
             no = result[0][0]
             y = "{:.4f}".format(yes)
-            n = "{:.4f}".format(yes)
+            n = "{:.4f}".format(no)
             st.title("Success Chances : ")
             st.title("YES: "+ str(y)+" %")
             st.title("NO: " + str(n)+ " %")
