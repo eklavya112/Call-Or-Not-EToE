@@ -232,8 +232,8 @@ if st.button('Prediction',key=next(keys)):
             yes = result[0][1]
             no = result[0][0]
             st.title("Success Chances : ")
-            st.title("YES: "+ str(round((yes*100),2)+" %")
-            st.title("NO: " + str(round((no*100),2)+ " %")
+            st.title("YES: "+ str(yes)+" %")
+            st.title("NO: " + str(no)+ " %")
             # st.title("There are "+str(result[0][0]*100)+" % Chances that the user will subscribe for Policy.")
 
     
