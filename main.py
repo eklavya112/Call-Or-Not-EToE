@@ -198,7 +198,7 @@ st.title("Make a Call or Not (New Bank Policy Promotion)")
 keys = (e for e in range(1,100))
 col1,col2 = st.columns(2,gap="large")
 with col1:
-    age = st.selectbox('AGE',sorted(A),key=next(keys))
+    age = st.number_input('AGE',key=next(keys))
 
 with col2:
     education = st.selectbox('EDUCATION',sorted(EDU),key=next(keys))
