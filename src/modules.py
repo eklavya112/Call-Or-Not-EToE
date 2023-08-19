@@ -128,27 +128,7 @@ def train_test(df:pandas.core.frame.DataFrame)->pandas.core.frame.DataFrame:
     x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.15,random_state=11,stratify=y)
     return x_train,x_test,y_train,y_test
 
-
-def my_model(x_train,x_test,y_train,y_test,element_indexes):
-    #elemetn indexes is the list of index of elemeents where one hot encoding will be performed
-    '''
-    This function is Complete PipeLine for the model training. It returns an trained model which can be used for further predictions
-    '''
-    
-    step1 = ColumnTransformer([
-        ('ohe',OneHotEncoder(sparse=False,handle_unknown='ignore'),element_indexes)
-      ],remainder='passthrough')
-    
-    step2 = GaussianNB()
-    
-    pipe = Pipeline([
-    ('step1',step1),
-    ('step2',step2)
-])
-    pipe.fit(x_train,y_train)
-    #pickle.dump(pipe,open('model.pkl','wb'))
-    return pipe
-
+# Model Building and training
 import joblib
 def trained_model(df:pandas.core.frame.DataFrame,element_indexes):
     '''
