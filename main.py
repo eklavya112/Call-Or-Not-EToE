@@ -129,6 +129,9 @@ def my_model(x_train,x_test,y_train,y_test,element_indexes):
     #pickle.dump(pipe,open('model.pkl','wb'))
     return pipe
 def model_for_app(df:pandas.core.frame.DataFrame,element_indexes):
+    '''
+    This function will return the complete model with pipeline used and element _index are the index of column which shuould be encoded.
+    '''
     x = df.drop('y',axis=1)
     y = df['y']
     step1 = ColumnTransformer([
