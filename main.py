@@ -53,7 +53,7 @@ with col7:
 
 if st.button('Prediction',key=next(keys)):
             df = pandas.DataFrame(
-                {'job': [job], 'marital': [marital],'education':[education],'default':[defaulter]
+                {'job': [job], 'marital': [marital],'education':[education],'default':[defaulter],
                  'log_age': [numpy.log(age)],'Any_Loans': [any_loans], 'Month':
                    [month]})
             result = model.predict_proba(df)
