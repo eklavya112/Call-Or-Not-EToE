@@ -99,7 +99,7 @@ def ftr_eng_sel(df:pandas.core.frame.DataFrame)->pandas.core.frame.DataFrame:
 
 
 
-def train_test(df:pandas.core.frame.DataFrame):
+def train_test(df:pandas.core.frame.DataFrame)->pandas.core.frame.DataFrame:
     '''
     This function takes dataframe as input and returns four dataframes: train_x, test_x, train_y,test_y
     '''
