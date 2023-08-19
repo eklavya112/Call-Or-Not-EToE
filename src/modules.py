@@ -114,7 +114,7 @@ def ftr_eng_sel(df:pandas.core.frame.DataFrame)->pandas.core.frame.DataFrame:
     # file.write("5. Following is a list of all final selected columns for training the model"+"\n")
     # file.write("[Job,marital,education,default,month,age(log),y(target),any_loans(housing+personal),Frequencyofprvcalls(campaign calls)]")
     # file.close()
-    return df[['job','marital','education','default,'y','log_age','Any_Loans','Month']]
+    return df[['job','marital','education','default','y','log_age','Any_Loans','Month']]
 
 
 
