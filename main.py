@@ -16,7 +16,7 @@ J = ['housemaid', 'services', 'admin.', 'blue-collar', 'technician',
 M = ['Second_Quarter', 'Third_Quarter', 'Fourth_Quarter',
        'First_Quarter']
 
-#D = ['no', 'unknown', 'yes']
+D = ['no', 'unknown', 'yes']
 MAR =['married', 'single', 'divorced', 'unknown']
 
 ANY_L = ['yes','no','unknown']
@@ -42,20 +42,18 @@ with col3:
 with col4:
     job = st.selectbox('JOB',sorted(J),key=next(keys))
 
-col5,col6 = st.columns(2,gap="large")
+col5,col6,col7 = st.columns(3,gap="large")
 
 with col5:
     any_loans = st.selectbox("ANY LOANS",sorted(ANY_L),key=next(keys))
 with col6:
     month = st.selectbox("TIME PERIOD",sorted(M),key=next(keys))
-    
-
-#with col7:
-    
+with col7:
+    defaulter = st.selectbox("DEFAULTER",sorted(D),key=next(keys))
 
 if st.button('Prediction',key=next(keys)):
             df = pandas.DataFrame(
-                {'job': [job], 'marital': [marital],'education':[education],
+                {'job': [job], 'marital': [marital],'education':[education],'default':[defaulter]
                  'log_age': [numpy.log(age)],'Any_Loans': [any_loans], 'Month':
                    [month]})
             result = model.predict_proba(df)
