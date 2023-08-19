@@ -2,7 +2,7 @@
 
 import streamlit as st
 from src.modules import *
-df = get_data("notebook\data\Bank.csv",";")
+df = get_data("Bank.csv",";")
 final_df = ftr_eng_sel(df)
 
 #Training the model
