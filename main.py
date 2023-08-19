@@ -6,7 +6,7 @@ df = get_data("Bank.csv",";")
 final_df = ftr_eng_sel(df)
 
 #Training the model
-trained_model(final_df,[0,1,2,4,5])
+trained_model(final_df,[0,1,2,3,5,6])
 
 model = joblib.load("trained_model.pkl")
 J = ['housemaid', 'services', 'admin.', 'blue-collar', 'technician',
