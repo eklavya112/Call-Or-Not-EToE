@@ -1,4 +1,4 @@
-from src.packages import *
+from packages import *
 def get_data(filepath:str,delimeter_type=None)->pandas.core.frame.DataFrame:
     '''
     This Function will return the data in DataFrame format.
