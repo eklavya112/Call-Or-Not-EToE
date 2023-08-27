@@ -2,10 +2,9 @@
 import streamlit as st
 from modules import *
 
-@st.cache_resource
+st.cache_resource
 def load_model():
      return joblib.load("trained_model.pkl")
-
 model = load_model()
 J = ['housemaid', 'services', 'admin.', 'blue-collar', 'technician',
        'retired', 'management', 'unemployed', 'self-employed', 'unknown',
